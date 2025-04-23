@@ -1,19 +1,17 @@
+import math
+
+
 def NULL_not_found(object: any) -> int:
-    t = type(object)
-    s = ''
     type_handlers = {
-        type(None): 'Nothing',
-        float: 'Cheese',
-        int: 'Zero',
-        str: 'Empty',
-        bool: 'Fake',
-        'fail': None
+        type(None): ('Nothing', lambda x: x is None),
+        float: ('Cheese', lambda x: isinstance(x, float) and math.isnan(x)),
+        int: ('Zero', lambda x: x == 0 and isinstance(x, int)),
+        str: ('Empty', lambda x: x == ''),
+        bool: ('Fake', lambda x: x is False)
     }
-    s = type_handlers.get(t, 'fail')
-    if s == None:
-        print('Type not found')
-        return 1
-    print(f'{s}: {object} {t}')
-    return 0 
-
-
+    for t, (label, checker) in type_handlers.items():
+        if checker(object):
+            print(f'{label}: {object} {type(object)}')
+            return 0
+    print('Type not found')
+    return 1

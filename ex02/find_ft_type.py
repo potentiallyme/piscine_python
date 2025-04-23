@@ -1,5 +1,7 @@
 def handle_str(object):
     print(f'{object} is in the kitchen : {type(object)}')
+
+
 def all_thing_is_obj(object: any) -> int:
     t = type(object)
     type_handlers = {
@@ -13,5 +15,3 @@ def all_thing_is_obj(object: any) -> int:
     }
     type_handlers.get(t, lambda val: print('Type not found'))(object)
     return 42
-
-
