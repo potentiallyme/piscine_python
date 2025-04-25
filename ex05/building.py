@@ -18,10 +18,12 @@ def main():
     - None: Prints results directly
     '''
     try:
-        assert len(sys.argv) > 1, 'Please enter a string'
         assert len(sys.argv) < 3, 'AssertionError: too many arguments'
+        if len(sys.argv) == 2:
+            s = sys.argv[1]
+        else:
+            s = input('Enter a text to count below:\n')
         upper = lower = space = punc = dig = 0
-        s = sys.argv[1]
 
         for i in s:
             if i.islower():
@@ -35,7 +37,7 @@ def main():
             elif i.isdigit():
                 dig += 1
 
-        print(f'The text contains {len(sys.argv[1])} characters:')
+        print(f'The text contains {len(s)} characters:')
         print(f'{upper} upper letters')
         print(f'{lower} lower letters')
         print(f'{punc} punctuation marks')
@@ -48,4 +50,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-    print('\n', main.__doc__)
