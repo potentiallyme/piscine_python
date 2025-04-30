@@ -1,0 +1,26 @@
+[build-system]
+requires = ["hatchling >= 1.26"]
+build-backend = "hatchling.build"
+
+[project]
+name = "lmoran_pack_lmoran"
+version = "0.0.1"
+authors = [
+  { name="Loic Moran", email="lmoran@student.42.fr" },
+]
+description = "luh pack yer"
+readme = "README.md"
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+license = "MIT"
+license-files = ["LICEN[CS]E*"]
+
+[project.urls]
+Homepage = "https://github.com/potentiallyme/piscine_python/tree/main/ex09"
+Issues = "https://github.com/"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/lmoran_pack_lmoran"]
