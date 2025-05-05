@@ -15,6 +15,8 @@ def slice_me(family: list, start: int, end: int) -> list:
     '''
     try:
         assert isinstance(family, list), '1st param must be list'
+        assert isinstance(start, int), '2nd param must be int'
+        assert isinstance(end, int), '3rd param must be int'
         a = np.array(family)
         assert np.issubdtype(a.dtype, np.number), 'list must contain nums'
         print(f'My shape is: {a.shape}')
